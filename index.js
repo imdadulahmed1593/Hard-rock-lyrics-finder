@@ -25,7 +25,7 @@ searchBox.addEventListener('keypress', function (event) {
 
 function displayResult(data) {
     const display = document.querySelector(".display-result");
-    console.log(data);
+    // console.log(data);
     display.innerHTML = '';
 
     for (let i = 0; i < 10; i++) {
@@ -54,7 +54,7 @@ function displayResult(data) {
     searchBox.value = '';
 
     const numOfLyricBtn = document.querySelectorAll('.get-lyric-btn').length;
-    console.log(numOfLyricBtn)
+    // console.log(numOfLyricBtn)
     for (let i = 0; i < numOfLyricBtn; i++) {
         document.querySelectorAll('.get-lyric-btn')[i].addEventListener('click', function () {
             const title = data.data[i].title;
@@ -63,7 +63,7 @@ function displayResult(data) {
             fetch(`https://api.lyrics.ovh/v1/${artist}/${title}`)
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
                     const lyric = document.querySelector(".lyric");
                     const lyricsHeader = document.querySelector(".lyrics-header");
                     lyricsHeader.innerText = `${artist} - ${title}`;
