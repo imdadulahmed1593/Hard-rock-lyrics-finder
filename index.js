@@ -32,11 +32,14 @@ function displayResult(data) {
 
         display.innerHTML +=
             `<div class="single-result row align-items-center my-3 p-3">
-            <div class="col-md-9">
+            <div class="img-result">
+                <img class="px-3" src="${data.data[i].album.cover_small}" alt="album cover">
+                <div>
                 <h3 class="lyrics-name">${data.data[i].title}</h3>
                 <p class="author lead">Album by <span>${data.data[i].artist.name}</span></p>
+                </div>
             </div>
-            <div class="col-md-3 text-md-right text-center">
+            <div class="text-md-right text-center">
                 <button class="get-lyric-btn btn btn-success">Get Lyrics</button>
             </div>
         </div>`;
@@ -61,22 +64,15 @@ function displayResult(data) {
                         lyric.innerText = `${data.lyrics}`;
                     }
                     else {
+
                         lyric.innerText = `${data.error}`;
+                        alert(`${data.error}`);
                     }
                 });
         });
     }
 }
-// function displayLyric(data) {
-//     console.log(data)
-//     const lyric = document.querySelector(".lyric");
-//     const lyricsHeader = document.querySelector(".lyrics-header");
-//     // lyricsHeader.innerText = `${artist} - ${title}`;
-//     lyric.innerText = `${data.lyrics}`;
-// }
 
-{/* <p class="author lead"><strong>${data.data[i].title}</strong> Album by <span>${data.data[i].artist.name}</span> <button
-        class="get-lyric-btn btn btn-success">Get Lyrics</button></p>  */}
 
 
 

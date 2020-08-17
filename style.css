@@ -35,8 +35,26 @@ body{
     right: 0;
     height: 100%;
 }
+.img-result{
+    display: flex;
+    justify-content: flex-start;
+}
 .single-result{
+    display: flex;
+    justify-content: space-between;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 15px;
+    max-width: 60%;
+    margin:auto;
+}
+.lyric{
+    font-size: medium;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@media (max-width: 800px){
+    .single-result{
+        max-width: 90%;
+    }
 }
 
