@@ -30,11 +30,17 @@ function displayResult(data) {
 
     for (let i = 0; i < 10; i++) {
         const imgUrl = data.data[i].album.cover_small;
+        const imgUrlf = imgUrl.substring(0, 4);
+        const imgUrlE = imgUrl.substring(4, imgUrl.length);
+        const FinalImgUrl = `${imgUrlf}s${imgUrlE}`;
+        // console.log(imgUrl);
+        // console.log(FinalImgUrl);
+
         display.innerHTML +=
             `<div class="single-result row align-items-center my-3 p-3">
             <div class="img-result">
                 
-                <img class="px-3" src="${imgUrl}" alt=" album cover">
+                <img class="px-3" src="${FinalImgUrl}" alt=" album cover">
                 <div>
                 <h3 class="lyrics-name">${data.data[i].title}</h3>
                 <p class="author lead">Album by <span>${data.data[i].artist.name}</span></p>
