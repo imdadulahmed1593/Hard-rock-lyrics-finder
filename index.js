@@ -40,7 +40,7 @@ function displayResult(data) {
             `<div class="single-result row align-items-center my-3 p-3">
             <div class="img-result">
                 
-                <img class="px-3" src="${FinalImgUrl}" alt=" album cover">
+                <img class="px-3" src="${imgUrl}" alt=" album cover">
                 <div>
                 <h3 class="lyrics-name">${data.data[i].title}</h3>
                 <p class="author lead">Album by <span>${data.data[i].artist.name}</span></p>
