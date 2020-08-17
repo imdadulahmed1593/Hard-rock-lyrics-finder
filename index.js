@@ -2,15 +2,16 @@ const baseUrl = 'https://api.lyrics.ovh/suggest/';
 
 const searchBox = document.querySelector("#search-input");
 
+
+// calling data from the API
 document.querySelector('.search-btn').addEventListener('click', function () {
     const searchValue = searchBox.value;
     const url = `${baseUrl}${searchValue}`;
     fetch(url)
         .then(res => res.json())
         .then(data => displayResult(data));
-
-
 });
+
 searchBox.addEventListener('keypress', function (event) {
     if (event.keyCode == 13) {
         const searchValue = searchBox.value;
@@ -19,10 +20,9 @@ searchBox.addEventListener('keypress', function (event) {
             .then(res => res.json())
             .then(data => displayResult(data));
     }
+});
 
-})
-
-
+// function for displaying search results
 function displayResult(data) {
     const display = document.querySelector(".display-result");
     // console.log(data);
@@ -30,16 +30,15 @@ function displayResult(data) {
 
     for (let i = 0; i < 10; i++) {
         const imgUrl = data.data[i].album.cover_small;
-        const imgUrlf = imgUrl.substring(0, 4);
-        const imgUrlE = imgUrl.substring(4, imgUrl.length);
-        const FinalImgUrl = `${imgUrlf}s${imgUrlE}`;
+        // const imgUrlf = imgUrl.substring(0, 4);
+        // const imgUrlE = imgUrl.substring(4, imgUrl.length);
+        // const FinalImgUrl = `${imgUrlf}s${imgUrlE}`;
         // console.log(imgUrl);
         // console.log(FinalImgUrl);
 
         display.innerHTML +=
             `<div class="single-result row align-items-center my-3 p-3">
             <div class="img-result">
-                
                 <img class="px-3" src="${imgUrl}" alt=" album cover">
                 <div>
                 <h3 class="lyrics-name">${data.data[i].title}</h3>
@@ -53,6 +52,8 @@ function displayResult(data) {
     }
     searchBox.value = '';
 
+
+    //displaying lyrics when 'get lyrics' button is pressed
     const numOfLyricBtn = document.querySelectorAll('.get-lyric-btn').length;
     // console.log(numOfLyricBtn)
     for (let i = 0; i < numOfLyricBtn; i++) {
