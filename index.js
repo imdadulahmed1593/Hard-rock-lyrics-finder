@@ -30,10 +30,19 @@ function displayResult(data) {
 
     for (let i = 0; i < 10; i++) {
 
-        display.innerHTML += `<p class="author lead"><strong>${data.data[i].title}</strong> Album by <span>${data.data[i].artist.name}</span> <button
-        class="get-lyric-btn btn btn-success">Get Lyrics</button></p> `;
+        display.innerHTML +=
+            `<div class="single-result row align-items-center my-3 p-3">
+            <div class="col-md-9">
+                <h3 class="lyrics-name">${data.data[i].title}</h3>
+                <p class="author lead">Album by <span>${data.data[i].artist.name}</span></p>
+            </div>
+            <div class="col-md-3 text-md-right text-center">
+                <button class="get-lyric-btn btn btn-success">Get Lyrics</button>
+            </div>
+        </div>`;
     }
     searchBox.value = '';
+
     const numOfLyricBtn = document.querySelectorAll('.get-lyric-btn').length;
     console.log(numOfLyricBtn)
     for (let i = 0; i < numOfLyricBtn; i++) {
@@ -48,20 +57,14 @@ function displayResult(data) {
                     const lyric = document.querySelector(".lyric");
                     const lyricsHeader = document.querySelector(".lyrics-header");
                     lyricsHeader.innerText = `${artist} - ${title}`;
-
-
                     if (data.lyrics) {
-
                         lyric.innerText = `${data.lyrics}`;
                     }
                     else {
                         lyric.innerText = `${data.error}`;
                     }
-
                 });
-
         });
-
     }
 }
 // function displayLyric(data) {
@@ -72,9 +75,8 @@ function displayResult(data) {
 //     lyric.innerText = `${data.lyrics}`;
 // }
 
-
-
-
+{/* <p class="author lead"><strong>${data.data[i].title}</strong> Album by <span>${data.data[i].artist.name}</span> <button
+        class="get-lyric-btn btn btn-success">Get Lyrics</button></p>  */}
 
 
 
